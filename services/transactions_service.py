@@ -43,7 +43,6 @@ class TransactionService:
         penalty_calculator = PenaltyCalculator(data.itemCat, data.overdueDays, 
                                                data.overdueHours, data.overDueMinutes, 
                                                client.warningCount)
-        # penalty: SetClientPenalty = penalty_calculator.calculatePenalty()
         self.client_repo.set_client_penalties(client, penalty_calculator.calculatePenalty())
         return returned_transaction
     
